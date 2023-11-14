@@ -1,0 +1,8 @@
+Vbox001-003: 10.30.2.34-36
+dvtrn: 10.30.2.37 - NIS client and coasiasemi autofs
+rtltrn: 10.30.2.38
+hlstrn: 10.30.2.39
+dstrn: 10.30.2.64
+us1804: 10.30.2.42
+pctrn01: 10.30.2.51
+pctrn02: 10.30.2.52

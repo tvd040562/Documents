@@ -1,0 +1,55 @@
+1) Install WSL (Windows Subsystem for Linux)
+	Launch "Power Shell"
+	Run "wsl --install -d Ubuntu"
+	To enable Hyper-V Manager: https://www.altaro.com/hyper-v/shrink-hyper-v-virtual-disk-vhd-vhdx/
+	The Virtual disk location: C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx
+	To mount windows drives: sudo mkdir /mnt/<drive letter>; sudo mount -t drvfs -o uid=<username>,gid=<group> <drive letter>: /mnt/<drive letter>
+
+2) Download Modelsim Student Edition
+	https://www.intel.com/content/www/us/en/software-kit/750666/modelsim-intel-fpgas-standard-edition-software-version-20-1-1.html
+	After downloading, click on the file and follow the instructions to install.
+
+3) Link Modelsim env to Ubuntu bash env
+	export PATH=/mnt/c/intelFPGA/20.1/modelsim_ase/win32aloem:$PATH
+
+4) IVerilog environment - Standalone
+	git clone https://github.com/steveicarus/iverilog.git
+	sudo apt install autoconf gperf flex bison
+	cd iverilog
+	./configuration
+	sudo make install
+	cd ..;rm -rf iverilog
+
+5) Install gtkwave - At wsl shell, sudo apt install gtkwave
+
+6) To capture VCD
+	At the beginning of any initial task, add
+	* $dumpfile("tb.vcd");//tb.vcd is the VCD file for capturing
+	* $dumpvars(tb);// All variables under tb module will be captured.
+
+7) To install OPENRAM using environment
+	* git clone https://github.com/VLSIDA/OpenRAM.git
+	* export OPENRAM_HOME="$HOME/OpenRAM/compiler"
+	* export OPENRAM_TECH="$HOME/OpenRAM/technology"
+	* export PYTHONPATH=$OPENRAM_HOME:$OPENRAM_TECH/sky130:$OPENRAM_TECH/sky130/custom
+	* sky130 setup
+		* cd $HOME/OpenRAM
+		* export CONDA_HOME="$HOME/OpenRAM/miniconda"; 
+		* ./install_conda.sh
+		* make pdk
+		* make install
+	* Please refer to https://github.com/VLSIDA/OpenRAM/blob/stable/docs/source/basic_usage.md for basic usage.
+		To use the macros method:
+		* cd $OPENRAM_HOME/macros
+		* make sky130_sram_1kbyte_1r1w_8x1024_8 (an example for SRAM, refer to the config file under sram_configs.
+
+8) To install OpenROAD
+	cd $HOME
+	git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+	mv OpenROAD-flow-scripts /opt
+	cd /opt/OpenROAD-flow-scripts
+	sudo ./setup.sh
+	#sudo apt install libreadline-dev libffi-dev cmake
+	./build_openroad.sh --local --thread 1
+
+

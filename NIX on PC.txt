@@ -1,0 +1,54 @@
+1) Install Openlane2
+	i) Install WSL (Windows Subsystem for Linux)
+		Launch "Power Shell"
+		Run "wsl --install -d Ubuntu"
+		To enable Hyper-V Manager: https://www.altaro.com/hyper-v/shrink-hyper-v-virtual-disk-vhd-vhdx/
+		The Virtual disk location: C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx
+		To mount windows drives: sudo mkdir /mnt/<drive letter>; sudo mount -t drvfs <drive letter>: /mnt/<drive letter>
+
+	ii) Install NIX environment
+		After installing Ubuntu, you will be asked to provide username and password for new account and will be logged into a new bash shell
+		Install "curl": sudo apt install curl
+		Install NIX: sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
+		Setting up the binary cache: nix-env -f "<nixpkgs>" -iA cachix; cachix use openlane
+	iii) Cloning Openlane
+		git clone https://github.com/efabless/openlane2
+	iv) cd to Openlane2 and run "nix-shell".  This will take awhile for the first time.
+
+2) Download Modelsim Student Edition
+	https://www.intel.com/content/www/us/en/software-kit/750666/modelsim-intel-fpgas-standard-edition-software-version-20-1-1.html
+	After downloading, click on the file and follow the instructions to install.
+
+3) Link Modelsim env to Ubuntu bash env
+	export PATH=/mnt/c/intelFPGA/20.1/modelsim_ase/win32aloem:$PATH
+
+4) IVerilog environment - After installing NIX in Windows platform,
+	To activate iverilog environment: nix-shell -p verilog
+	To compile: iverilog -o<name of executable file> <list of verilog> -g2005sv <list of sverilog files>
+	To run: ./<executable file>
+
+5) Install gtkwave - At wsl shell, sudo apt install gtkwave
+
+6) To capture VCD
+	At the beginning of any initial task, add
+	* $dumpfile("tb.vcd");//tb.vcd is the VCD file for capturing
+	* $dumpvars(tb);// All variables under tb module will be captured.
+
+7) To install OPENRAM using environment
+	* git clone https://github.com/VLSIDA/OpenRAM.git
+	* export OPENRAM_HOME="$HOME/OpenRAM/compiler"
+	* export OPENRAM_TECH="$HOME/OpenRAM/technology"
+	* export PYTHONPATH=$OPENRAM_HOME:$OPENRAM_TECH/sky130:$OPENRAM_TECH/sky130/custom
+	* sky130 setup
+		* cd $HOME/OpenRAM
+		* export CONDA_HOME="$HOME/OpenRAM/miniconda"; 
+		* ./install_conda.sh
+		* make pdk
+		* make install
+	* Please refer to https://github.com/VLSIDA/OpenRAM/blob/stable/docs/source/basic_usage.md for basic usage.
+		To use the macros method:
+		* cd $OPENRAM_HOME/macros
+		* make sky130_sram_1kbyte_1r1w_8x1024_8 (an example for SRAM, refer to the config file under sram_configs.
+*** WARNING ***
+Openlane2 has issue connecting hard MACRO.  Please use Openlane1 so we need to install docker
+

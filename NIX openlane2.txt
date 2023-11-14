@@ -1,0 +1,3 @@
+1) cd to $OSDA/data/nix/openlane2
+2) Activate nix-shell
+3) openlane --pdk-root=$OSDA/data/nix/openlane2/.volare <path to config.json>
