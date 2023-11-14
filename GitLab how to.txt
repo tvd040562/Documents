@@ -1,0 +1,30 @@
+1) Installation on CentOS 7
+	sudo yum install -y curl policycoreutils-python openssh-server perl
+	sudo yum install postfix
+	sudo systemctl status postfix.service
+	curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
+	sudo EXTERNAL_URL="http://10.30.2.79" yum install -y gitlab-ee
+
+2) Initial "root" password
+	sudo cat /etc/gitlab/initial_root_password
+
+3) Setup custom git data folder
+	sudo vi /etc/gitlab/gitlab.rb - Search for git_data_dirs
+	sudo gitlab-ctl reconfigure
+
+4) User register to GitLab
+	Use browser and go to http://10.30.2.79/users/sign_in then click on "register now"
+	Fill in user information then wait for the approval
+	After 30 minutes, try to login.  Contact tony.dinh@coasia.com if there is any login problem.
+	
+5) Create SSH-KEY in order to push to remote repository
+	at the shell window: ssh-keygen (please accept all defaults)
+	At GitLab page, go to profile - preferences - SSH Keys - Add new key
+	Copy the content of $HOME/.ssh/id_rsa.pub then add to the "key" section.
+	
+6) Create a new repository
+	Go to GitLab home page then add a new project
+
+7) Git global configure
+	git config --global user.email "Your email"
+	git config --global user.name "Your name"	
