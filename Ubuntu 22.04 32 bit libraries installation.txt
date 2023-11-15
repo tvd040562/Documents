@@ -1,0 +1,8 @@
+1) sudo apt update
+2) sudo dpkg --add-architecture i386
+3) sudo apt install libc6:i386 libstdc++6:i386 libncurses5:i386 zlib1g:i386
+4) sudo apt install elfutils
+5) Additional installation for Modelsim (32 bits)
+	sudo apt install libxext6:i386	
+	sudo apt install libxft2:i386
+	
