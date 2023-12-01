@@ -49,6 +49,3 @@
 		To use the macros method:
 		* cd $OPENRAM_HOME/macros
 		* make sky130_sram_1kbyte_1r1w_8x1024_8 (an example for SRAM, refer to the config file under sram_configs.
-*** WARNING ***
-Openlane2 has issue connecting hard MACRO.  Please use Openlane1 so we need to install docker
-
