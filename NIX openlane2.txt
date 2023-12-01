@@ -1,3 +1,5 @@
-1) cd to $OSDA/data/nix/openlane2
-2) Activate nix-shell
-3) openlane --pdk-root=$OSDA/data/nix/openlane2/.volare <path to config.json>
+1) cd to $HOME
+2) git clone https://github.com/efabless/openlane2.git
+3) cd openlane2 
+4) nix-shell
+3) openlane <path to config.json>
