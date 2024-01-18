@@ -59,6 +59,8 @@
 	* Logout and re-login for changes to be effective
 	* git clone https://github.com/The-OpenROAD-Project/OpenLane
 	* cd OpenLane
+  * git fetch --all --tags --prune
+  * git checkout tags/2023.10.05 -b stable
 	* make
 	* make test
 	* make mount - To activate OpenLane environment
