@@ -29,7 +29,7 @@
 
 7) To install OPENRAM using environment
 	* git clone https://github.com/VLSIDA/OpenRAM.git
-	* sudo mv OpenRAM $HOME
+	* mv OpenRAM $HOME
 	* export OPENRAM_HOME="$HOME/OpenRAM/compiler"
 	* export OPENRAM_TECH="$HOME/OpenRAM/technology"
 	* export PYTHONPATH=$OPENRAM_HOME:$OPENRAM_TECH/sky130:$OPENRAM_TECH/sky130/custom
