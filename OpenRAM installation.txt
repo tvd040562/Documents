@@ -14,7 +14,7 @@ To install OPENRAM using environment
 
 	* sky130 setup
 		* make sky130-pdk
-		* make install
+		* make sky130-install
 
 	* Please refer to https://github.com/VLSIDA/OpenRAM/blob/stable/docs/source/basic_usage.md for basic usage.
 		To use the macros method:
