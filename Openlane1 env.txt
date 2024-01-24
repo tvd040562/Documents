@@ -28,21 +28,7 @@
 	* $dumpvars(tb);// All variables under tb module will be captured.
 
 7) To install OPENRAM using environment
-	* git clone https://github.com/VLSIDA/OpenRAM.git
-	* mv OpenRAM $HOME
-	* export OPENRAM_HOME="$HOME/OpenRAM/compiler"
-	* export OPENRAM_TECH="$HOME/OpenRAM/technology"
-	* export PYTHONPATH=$OPENRAM_HOME:$OPENRAM_TECH/sky130:$OPENRAM_TECH/sky130/custom
-	* sky130 setup
-		* cd $HOME/OpenRAM
-		* export CONDA_HOME="$HOME/OpenRAM/miniconda"; 
-		* ./install_conda.sh
-		* make pdk
-		* make install
-	* Please refer to https://github.com/VLSIDA/OpenRAM/blob/stable/docs/source/basic_usage.md for basic usage.
-		To use the macros method:
-		* cd $OPENRAM_HOME/macros
-		* make sky130_sram_1kbyte_1r1w_8x1024_8 (an example for SRAM, refer to the config file under sram_configs.
+	* Moved to a separate document
 
 8) Install docker under WSL
 	* curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
