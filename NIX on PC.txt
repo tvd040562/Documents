@@ -11,10 +11,17 @@
 		Install "curl": sudo apt install curl
 		Install NIX: sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
 		Setting up the binary cache: nix-env -f "<nixpkgs>" -iA cachix; cachix use openlane
+
 	iii) Cloning Openlane
 		git clone -n https://github.com/efabless/openlane2
+
 	iv) cd to Openlane2 and run "git checkout 0b9079cbdbaa243a6050ca7e5afc71c469fe3808 -b stable" and then "nix-shell".  
                 This will take awhile for the first time.
+
+	v) In the case of the below error message:
+		error: file 'nixpkgs' was not found in the Nix search path (add it using $NIX_PATH or -I)
+		nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+		nix-channel --update
 
 2) Download Modelsim Student Edition
 	https://www.intel.com/content/www/us/en/software-kit/750666/modelsim-intel-fpgas-standard-edition-software-version-20-1-1.html
