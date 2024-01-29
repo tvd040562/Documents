@@ -1,4 +1,4 @@
-To install OPENRAM using environment
+To install OPENRAM using environment (Recommend Ubuntu 22.04)
 	* Make sure the python version is at least 3.5
 		python3 -V
 	* To install python3 if the version is < 3.5
