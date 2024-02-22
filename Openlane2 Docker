@@ -1,0 +1,47 @@
+1) Install WSL (Windows Subsystem for Linux)
+	Launch "Power Shell"
+	Run "wsl --install -d Ubuntu"
+	To enable Hyper-V Manager: https://www.altaro.com/hyper-v/shrink-hyper-v-virtual-disk-vhd-vhdx/
+	The Virtual disk location: C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx
+	To mount windows drives: sudo mkdir /mnt/<drive letter>; sudo mount -t drvfs -o uid=<username>,gid=<group> <drive letter>: /mnt/<drive letter>
+
+2) Download Modelsim Student Edition
+	https://www.intel.com/content/www/us/en/software-kit/750666/modelsim-intel-fpgas-standard-edition-software-version-20-1-1.html
+	After downloading, click on the file and follow the instructions to install.
+
+3) Link Modelsim env to Ubuntu bash env
+	export PATH=/mnt/c/intelFPGA/20.1/modelsim_ase/win32aloem:$PATH
+
+4) IVerilog environment - Standalone
+	git clone https://github.com/steveicarus/iverilog.git
+	sudo apt install autoconf gperf flex bison
+	cd iverilog
+	./configuration
+	sudo make install
+	cd ..;rm -rf iverilog
+
+5) Install gtkwave - At wsl shell, sudo apt install gtkwave
+
+6) To capture VCD
+	At the beginning of any initial task, add
+	* $dumpfile("tb.vcd");//tb.vcd is the VCD file for capturing
+	* $dumpvars(tb);// All variables under tb module will be captured.
+
+7) To install OPENRAM using environment
+	* Moved to a separate document
+
+8) Install docker under WSL
+	* curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	* echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	* sudo apt update
+	* apt-cache policy docker-ce
+	* sudo apt install docker-ce
+	* sudo systemctl status docker
+
+9) Refer to https://github.com/orgs/efabless/packages/container/package/openlane2 for openlane2 versions
+  * docker pull ghcr.io/efabless/openlane2:<version>
+    docker pull ghcr.io/efabless/openlane2:2.0.0b16
+  * sudo chown -R joseph: /home/joseph/.volare
+  * python3 -m openlane --dockerized --smoke-test
+
+10) Change .local/lib/python3.10/site-packages/openlane/container.py to add mount_args
