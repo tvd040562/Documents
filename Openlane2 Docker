@@ -44,4 +44,7 @@
   * sudo chown -R joseph: /home/joseph/.volare
   * python3 -m openlane --dockerized --smoke-test
 
-10) Change .local/lib/python3.10/site-packages/openlane/container.py to add mount_args
+10) Change .local/lib/python3.10/site-packages/openlane/container.py to add mount_args (mount more external paths)
+ie:
+	    mount_args += ["-v", f"{from_home}:{to_home}"]
+    	    mount_args += ["-v", f"/mnt/d/designs:/mnt/d/designs"]
