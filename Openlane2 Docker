@@ -42,6 +42,7 @@
   * docker pull ghcr.io/efabless/openlane2:<version>
     docker pull ghcr.io/efabless/openlane2:2.0.0b16
   * sudo chown -R <username>: $HOME/.volare
+  * python3 install --user openlane
   * python3 -m openlane --dockerized --smoke-test
 
 10) Change .local/lib/python3.10/site-packages/openlane/container.py to add mount_args (mount more external paths)
