@@ -13,13 +13,8 @@
 	export PATH=/mnt/c/intelFPGA/20.1/modelsim_ase/win32aloem:$PATH
 
 4) IVerilog environment - Standalone
-	git clone https://github.com/steveicarus/iverilog.git
-	sudo apt install autoconf gperf flex bison
-	cd iverilog
-	./configuration
-	sudo make install
-	cd ..;rm -rf iverilog
-
+	sudo apt install autoconf gperf flex bison verilog
+	
 5) Install gtkwave - At wsl shell, sudo apt install gtkwave
 
 6) To capture VCD
@@ -41,7 +36,6 @@
 9) Refer to https://github.com/orgs/efabless/packages/container/package/openlane2 for openlane2 versions
   * docker pull ghcr.io/efabless/openlane2:<version>
     docker pull ghcr.io/efabless/openlane2:2.0.0b16
-  * sudo chown -R <username>: $HOME/.volare
   * python3 install --user openlane
   * python3 -m openlane --dockerized --smoke-test
 
