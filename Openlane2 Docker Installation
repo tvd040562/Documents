@@ -1,0 +1,15 @@
+1) Install WSL
+  * Check for available Linux distribution: wsl --list --online
+  * Install selected distribution (Ubuntu 22.04): wsl --install Ubuntu-22.04
+  * Check for Ubuntu update: sudo apt update
+  * Update if any: sudo apt upgrade -y
+  * Location of WSL:%userprofile%\AppData\Local\Packages\Canonical...\LocalState\ext4.vhdx
+2) Install docker: sudo apt install docker.io
+3) Add your own user priviledge into "docker" group: sudo usermod -aG docker <your username>
+  Re-login for the change to be effective: exit
+4) Check to see docker is running: sudo systemctl status docker
+5) Install python3-pip and python3-tk: sudo apt install -y python3-pip python3-tk
+6) Update pip if any: sudo python3 -m pip install --upgrade pip
+7) Install openlane2 package: sudo python3 -m pip install openlane
+8) Run test flow, it will automatically download Openlane2 docker image and the PDK if not exist:
+  openlane --dockerized --smoke-test
