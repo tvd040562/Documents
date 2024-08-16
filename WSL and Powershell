@@ -1,0 +1,4 @@
+1) List available Power Shell version: winget list --id microsoft.powershell
+2) Install the selected Power Shell version: winget install --id microsoft.powershell --source winget
+3) Export WSL distribution to tar file: wsl --export <distribution name> <filename>
+4) Import from file: wsl --import <Distro> <InstallLocation> <FileName>
