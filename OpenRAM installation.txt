@@ -3,14 +3,17 @@ To install OPENRAM using environment (Recommend Ubuntu 22.04)
 		python3 -V
 	* To install python3 if the version is < 3.5
 		sudo apt install python3 python3-pip 
-	* cd $HOME
+	* cd $WDIR - Where OpenRAM repository will be cloned
 	* git clone https://github.com/VLSIDA/OpenRAM.git
-	* cd $HOME/OpenRAM
+	* cd $WDIR/OpenRAM
 	* ./install_conda.sh
-	* export OPENRAM_HOME="$HOME/OpenRAM/compiler"
-	* export OPENRAM_TECH="$HOME/OpenRAM/technology"
+
+	* export OPENRAM_HOME="$WDIR/OpenRAM/compiler"
+	* export OPENRAM_TECH="$WDIR/OpenRAM/technology"
 	* export PYTHONPATH=$OPENRAM_HOME:$OPENRAM_TECH/sky130:$OPENRAM_TECH/sky130/custom
-	* export CONDA_HOME="$HOME/OpenRAM/miniconda" 
+	* export CONDA_HOME="$WDIR/OpenRAM/miniconda" 
+	* source $CONDA_HOME/bin/activate
+		Note: Repeat previous 5 commands before running OpenRAM in a new shell
 
 	* sky130 setup
 		* make sky130-pdk
