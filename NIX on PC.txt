@@ -16,7 +16,7 @@
 	iii) Cloning Openlane
 		git clone -n https://github.com/efabless/openlane2
 
-	iv) cd to Openlane2 and run "git checkout 0b9079cbdbaa243a6050ca7e5afc71c469fe3808 -b stable" and then "nix-shell".  
+	iv) cd to Openlane2 and run "nix-shell".  
                 This will take awhile for the first time.
 
 	v) In the case of the below error message:
