@@ -9,8 +9,9 @@
 	ii) Install NIX environment
 		After installing Ubuntu, you will be asked to provide username and password for new account and will be logged into a new bash shell
 		Install "curl": sudo apt install curl
-		Install NIX: sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
-		Setting up the binary cache: nix-env -f "<nixpkgs>" -iA cachix; cachix use openlane
+		Install NIX: curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/pr/1145 | sh -s -- install --no-confirm \
+                --extra-conf "extra-substituters = https://openlane.cachix.org \
+                              extra-trusted-public-keys = openlane.cachix.org-1:qqdwh+QMNGmZAuyeQJTH9ErW57OWSvdtuwfBKdS254E="
 
 	iii) Cloning Openlane
 		git clone -n https://github.com/efabless/openlane2
